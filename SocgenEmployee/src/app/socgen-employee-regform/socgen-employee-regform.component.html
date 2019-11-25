@@ -1,0 +1,64 @@
+<style>
+.ui-grid-row {
+        border: 0 none;
+    }
+    .ui-grid-col-2 {
+    width: 16.66666%;
+}
+
+
+.ui-grid-col-6 {
+    width: 50%;
+}
+
+</style>
+
+<p>socgen-employee-regform works!</p>
+
+<div>
+    <form [formGroup]="registerForm" (ngSubmit) ="onSubmit(registerForm.value)" class="p-3 bg-faded"> 
+            <div class="form-group row">
+                <label for="firstName" class="col-sm-3 col-form-label">First Name       :    </label>
+                <div class="col-sm-9">
+                      <input type="text" formControlName="firstName" class="form-control" />
+                </div>
+            </div>  <br>
+        <div class="form-group row">
+                <label for="lastName" class="col-sm-3 col-form-label">Last Name         :    </label>
+                <div class="col-sm-9">
+                     <input type="text" formControlName="lastName" class="form-control"/>
+                </div>
+            </div><br>
+        <div class="form-group row" class="col-sm-3 col-form-label">
+            <label for="gender">gender     :             </label>
+            <div class="col-sm-9">
+                    <select formControlName="gender" id="gender" >
+                            <option *ngFor="let gender of genderlist; let i = index" [value]="genderlist[i].gendername">
+                              {{genderlist[i].gendername}}
+                            </option>
+                          </select>
+    
+            </div>
+        </div><br>
+        <div class="form-group row">
+            <label for="dob" class="col-sm-3 col-form-label">Date of birth:    </label>
+            <div class="col-sm-9">
+                <input type="date" formControlName="dob" class="form-control"/>
+            </div>
+        </div><br>
+        <div class="form-group row">
+                <label for="department" class="col-sm-3 col-form-label"> Department:    </label>
+                <select formControlName="department" id="department" >
+                        <option *ngFor="let department of departmentnames; let i = index" [value]="departmentnames[i].departmentname">
+                          {{departmentnames[i].departmentname}}
+                        </option>
+                      </select>
+                    
+        </div><br>
+            <div class="form-group row col-sm-12"  >
+                    <input type="submit" />
+            </div>
+      </form>
+    
+</div> 
+
